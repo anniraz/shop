@@ -1,0 +1,48 @@
+{% extends 'homebase.html' %}
+
+
+ {% block main %}
+ 
+{% include 'home/slider.html' %}
+<!-- new collection -->
+
+{% include 'home/new_collection.html' %}
+
+<!-- new collection/ -->
+
+<!-- deals of the day -->
+{% include 'home/deals_of_the_day.html' %}
+<!-- /deals of the day -->
+
+<!-- hot deal -->
+{% include 'home/hot_deal.html' %}
+<!-- hot deal/ -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<!-- lstest product -->
+			{% include 'home/latest_product.html' %}
+			<!-- lstest product/ -->
+			<!-- /row -->
+
+			<!-- row -->
+			<!-- new collection2 -->
+			{% include 'home/new_collection2.html' %}
+			<!-- new collection2/ -->
+			<!-- /row -->
+
+			<!-- picked for you -->
+			{% include 'home/picked_for_you.html' %}
+			<!-- picked for you/ -->
+
+
+
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+	{% endblock main %}
