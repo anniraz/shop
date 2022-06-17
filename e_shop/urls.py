@@ -12,8 +12,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('apps.product.urls')),
-    path('', index , name='home')
+    path('user/', include('apps.user.urls')),
+    path('', index , name='home'),
+    path('i18n/',include('django.conf.urls.i18n')),
 ]
+
+# urlpatterns += i18n_patterns(
+#     path('' ,include('apps.product.urls'))
+# )
+
+
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

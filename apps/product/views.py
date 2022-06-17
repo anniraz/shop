@@ -1,12 +1,37 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
-from apps.product.admin import ReviewAdmin
+from django.urls import reverse_lazy
 from django.views import generic
 from apps.product.forms import ReviewForm
 
 # from django.views import generic
 
-from apps.product.models import Product, Category,Images, Review
+from apps.product.models import *
+
+
+# class LoginUser(LoginView):
+#     form_class=AuthenticationForm
+#     template_name='productTemplates/login.html'
+#     def get_success_url(self):
+#         return reverse_lazy('homepage')
+
+    # success_url=reverse_lazy('homepage')
+
+# class RegisterUser(generic.CreateView):
+#     form_class=RegisterUserForm
+#     template_name='productTemplates/register_user.html'
+#     success_url=reverse_lazy('homepage')
+
+    # def form_valid(self,form):
+    #     user=form.save()
+    #     login(self.request,user)
+    #     return redirect('homepage')
+
+# def logout_user(request):
+#     logout(request)
+#     return redirect('login')
+    
+
 
 
 def products(request):
@@ -56,7 +81,7 @@ def product_detail(request,id):
         if form.is_valid():
             # print(form.cleaned_data)
                 form.save()
-                form.changed_data
+                form.changed_datachanged_data
 
     else:
         form = ReviewForm()

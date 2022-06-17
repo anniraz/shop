@@ -2,6 +2,8 @@ from django.contrib import admin
 from apps.product.models import Category,Product,Images,Review
 from mptt.admin import DraggableMPTTAdmin
 from apps.product.forms import ReviewForm
+from mptt.admin import MPTTModelAdmin
+from modeltranslation.admin import TranslationAdmin
 
 # Register your models here.
 
@@ -27,7 +29,7 @@ admin.site.register(
     list_display_links=(
         'indented_title',
     ),
-    prepopulated_fields = {'slug': ['title']},empty_value_display = '----'
+    prepopulated_fields = {'slug': ['title']},empty_value_display = '----',
 )
 
 
@@ -36,7 +38,9 @@ class ProductImagesInine(admin.TabularInline):
     model=Images
     extra= 3
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(TranslationAdmin):
+
+   
     # ModelAdmin.list_max_show_all
     empty_value_display = '-empty-'
     prepopulated_fields={'slug':['title']}

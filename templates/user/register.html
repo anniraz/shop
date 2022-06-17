@@ -1,0 +1,32 @@
+{% extends 'homebase.html' %}
+
+
+ {% block main %}
+<div style="padding:50px  100px;">
+<div class="container">
+    <form action="{% url 'user_register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% for field in form %}
+        <div class="row">
+            {{field.label_tag}}{{field}}
+        </div>
+        {% endfor %}
+        <button class="btn btn-success" type="submit">Регистрация</button>
+    </form>
+</div>
+</div>
+ {% endblock  %}
